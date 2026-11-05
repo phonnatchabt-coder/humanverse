@@ -1,0 +1,814 @@
+
+
+/* ==============================
+   HUMANVERSE - MAIN STYLE
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #061426, #0b2942, #061426);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==============================
+   HOME PAGE
+================================ */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 35px;
+    text-align: center;
+}
+
+.hero-content {
+    width: 100%;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #35d9ff;
+    text-shadow: 0 0 15px #00cfff;
+    margin-bottom: 15px;
+}
+
+.hero-content h2 {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #c9e8f5;
+    margin-bottom: 10px;
+}
+
+.hero-content button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 40px;
+    background: #087da5;
+    color: #ffffff;
+    border: 2px solid #35d9ff;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #35d9ff, 0 0 25px rgba(0, 207, 255, 0.7);
+}
+
+.hero-content button:hover {
+    background: #35d9ff;
+    color: #061426;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #35d9ff, 0 0 40px #00cfff;
+}
+
+/* ภาพโฮโลแกรม */
+
+.hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hologram-ring {
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    top: 8%;
+    left: 7.5%;
+    border: 2px solid rgba(53, 217, 255, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(53, 217, 255, 0.4);
+    animation: rotate-ring 12s linear infinite;
+}
+
+.human-image {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 20px rgba(53, 217, 255, 0.6));
+}
+
+.scan-label {
+    position: relative;
+    z-index: 2;
+    margin-top: 15px;
+    color: #35d9ff;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px #00cfff;
+}
+
+.scan-label span {
+    display: block;
+    margin-top: 8px;
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 2px;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes rotate-ring {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* ==============================
+   MISSION SELECT PAGE
+================================ */
+
+.mission-page {
+    display: none;
+    min-height: 100vh;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.mission-page h1 {
+    font-size: 42px;
+    color: #35d9ff;
+    text-shadow: 0 0 15px #00cfff;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.mission-page h2 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 45px;
+}
+
+.mission-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.mission-card {
+    width: 260px;
+    padding: 30px 20px;
+    background: rgba(8, 125, 165, 0.15);
+    border: 1px solid #35d9ff;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(53, 217, 255, 0.2);
+    transition: 0.3s;
+}
+
+.mission-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(53, 217, 255, 0.6);
+}
+
+.mission-card h3 {
+    color: #35d9ff;
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.mission-card p {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.mission-card span {
+    display: block;
+    margin-bottom: 20px;
+    color: #c9e8f5;
+}
+
+.mission-card button {
+    padding: 11px 25px;
+    background: #087da5;
+    color: #ffffff;
+    border: 1px solid #35d9ff;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.mission-card button:hover {
+    background: #35d9ff;
+    color: #061426;
+}
+
+.mission-card button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==============================
+   DIGESTIVE GALLERY
+================================ */
+
+.digestive-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    padding: 20px;
+}
+
+.digestive-gallery img {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    border: 1px solid #35d9ff;
+    box-shadow: 0 0 15px rgba(53, 217, 255, 0.25);
+}
+
+/* ==============================
+   FOOD GAME
+================================ */
+
+.food-game {
+    width: 90%;
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(5, 20, 40, 0.95);
+    border: 1px solid #35d9ff;
+    border-radius: 20px;
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(53, 217, 255, 0.2);
+}
+
+.food-game h2 {
+    color: #35d9ff;
+    text-shadow: 0 0 10px #35d9ff;
+    margin-bottom: 15px;
+}
+
+.food-game h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.food-game > p {
+    color: #c9e8f5;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+#game-progress {
+    display: inline-block;
+    margin: 15px auto;
+    padding: 8px 18px;
+    color: #35d9ff;
+    border: 1px solid #35d9ff;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+#game-question {
+    margin: 20px 0;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+/* ปุ่มคำตอบทั้ง 4 ข้อ */
+
+#game-options {
+    width: 100%;
+}
+
+#game-options button {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    margin: 12px auto;
+    padding: 14px;
+
+    background-color: #102c46 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+
+    border: 1px solid #35d9ff !important;
+    border-radius: 12px;
+
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+
+    box-shadow: 0 0 10px rgba(53, 217, 255, 0.25);
+    transition: 0.3s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#game-options button:hover {
+    background-color: #087da5 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 18px #35d9ff;
+    transform: scale(1.02);
+}
+
+/* ปุ่มไปข้อต่อไปและเล่นอีกครั้ง */
+
+#game-options .next-button {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 20px auto;
+    padding: 14px 25px;
+
+    background: #087da5 !important;
+    color: #ffffff !important;
+
+    border: 1px solid #35d9ff;
+    border-radius: 25px;
+
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#game-options .next-button:hover {
+    background: #35d9ff !important;
+    color: #061426 !important;
+    box-shadow: 0 0 20px #35d9ff;
+}
+
+/* ข้อความผลการตอบ */
+
+#game-feedback {
+    margin-top: 20px;
+    line-height: 1.8;
+    font-weight: bold;
+}
+
+.correct-feedback {
+    color: #52ffb8 !important;
+}
+
+.wrong-feedback {
+    color: #ff8585 !important;
+}
+
+/* คะแนนสุดท้าย */
+
+.final-score {
+    padding: 20px;
+    color: #ffffff;
+}
+
+.final-score strong {
+    display: block;
+    margin: 15px 0;
+    font-size: 42px;
+    color: #35d9ff;
+    text-shadow: 0 0 15px #35d9ff;
+}
+
+.final-score p {
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+/* ปุ่มกลับ */
+
+.back-button {
+    margin: 30px auto;
+    padding: 12px 28px;
+    background: #087da5;
+    color: #ffffff;
+    border: 1px solid #35d9ff;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background: #35d9ff;
+    color: #061426;
+    box-shadow: 0 0 15px #35d9ff;
+}
+
+.digestive-info {
+    width: 90%;
+    max-width: 650px;
+    margin: 30px auto;
+}
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 45px 15px;
+        gap: 25px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-content h2 {
+        font-size: 23px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-visual {
+        max-width: 420px;
+    }
+
+    .mission-page h1 {
+        font-size: 32px;
+    }
+
+    .mission-page h2 {
+        font-size: 19px;
+    }
+
+    .food-game {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 35px 12px;
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+        letter-spacing: 3px;
+    }
+
+    .hero-content h2 {
+        font-size: 20px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .hero-content button {
+        font-size: 16px;
+        padding: 12px 28px;
+    }
+
+    .hero-visual {
+        max-width: 320px;
+    }
+
+    .mission-card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    #game-question {
+        font-size: 17px;
+    }
+
+    #game-options button {
+        font-size: 15px;
+    }
+}
+/* MISSION 02 : IMAGE GALLERY */
+.circulatory-gallery {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.circulatory-gallery img {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 200, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
+}
+/* MISSION 03 : RESPIRATORY IMAGE GALLERY */
+.respiratory-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.respiratory-gallery img {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+}
+/* MISSION 02 : BLOOD GAME OPTIONS */
+
+#blood-options {
+    width: 100%;
+}
+
+#blood-options button {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    margin: 12px auto;
+    padding: 14px;
+
+    background-color: #102c46 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+
+    border: 1px solid #35d9ff !important;
+    border-radius: 12px;
+
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+
+    box-shadow: 0 0 10px rgba(53, 217, 255, 0.25);
+    transition: 0.3s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#blood-options button:hover {
+    background-color: #087da5 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 18px #35d9ff;
+    transform: scale(1.02);
+}
+/* MISSION 03 : RESPIRATORY GAME OPTIONS */
+
+#respiratory-options {
+    width: 100%;
+}
+
+#respiratory-options button {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    margin: 12px auto;
+    padding: 14px;
+
+    background-color: #102c46 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+
+    border: 1px solid #35d9ff !important;
+    border-radius: 12px;
+
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+
+    box-shadow: 0 0 10px rgba(53, 217, 255, 0.25);
+    transition: 0.3s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#respiratory-options button:hover {
+    background-color: #087da5 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 18px #35d9ff;
+    transform: scale(1.02);
+}
+
+/* ==============================
+   FIX : HUMANVERSE DARK MESSAGE BOX
+================================ */
+
+/* กล่องเกมและกล่องเนื้อหาทั้งหมด */
+.food-game,
+.digestive-info {
+    background: rgba(5, 20, 40, 0.98) !important;
+    color: #ffffff !important;
+}
+
+/* กล่องแสดงคำถาม */
+#game-question,
+#blood-question,
+#respiratory-question {
+    background: rgba(16, 44, 70, 0.95) !important;
+    color: #ffffff !important;
+    border: 1px solid #35d9ff !important;
+    border-radius: 12px;
+    padding: 18px;
+}
+
+/* กล่องแสดงคำตอบและคำอธิบาย */
+#game-feedback,
+#blood-feedback,
+#respiratory-feedback {
+    background: rgba(8, 35, 58, 0.98) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(53, 217, 255, 0.5);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* ปุ่มตัวเลือกคำตอบทุกภารกิจ */
+#game-options button,
+#blood-options button,
+#respiratory-options button {
+    background: #102c46 !important;
+    color: #ffffff !important;
+    border: 1px solid #35d9ff !important;
+    border-radius: 12px;
+}
+
+/* กล่องคะแนนสุดท้าย */
+.final-score {
+    background: rgba(5, 20, 40, 0.98) !important;
+    color: #ffffff !important;
+    border: 1px solid #35d9ff;
+    border-radius: 15px;
+    padding: 20px;
+}
+/* ==============================
+   MISSION 04–05 IMAGE GALLERY
+================================ */
+
+.excretory-gallery,
+.immune-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.excretory-gallery img,
+.immune-gallery img {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    border: 1px solid #35d9ff;
+    box-shadow: 0 0 15px rgba(53, 217, 255, 0.25);
+}
+
+@media (max-width: 480px) {
+    .excretory-gallery,
+    .immune-gallery {
+        padding: 5px;
+        gap: 18px;
+    }
+
+    .excretory-gallery img,
+    .immune-gallery img {
+        width: 100%;
+        height: auto;
+    }
+}
+/* MISSION 04 : EXCRETORY GALLERY */
+.excretory-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.excretory-gallery img {
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 1px solid #35d9ff;
+    box-shadow: 0 0 15px rgba(53, 217, 255, 0.25);
+}
+
+@media (max-width: 600px) {
+    .excretory-gallery {
+        padding: 5px;
+        gap: 18px;
+    }
+
+    .excretory-gallery img {
+        width: 100%;
+    }
+}
+/* MISSION 04 : ANSWER BUTTONS */
+#excretory-options button {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    margin: 12px auto;
+    padding: 15px 20px;
+
+    background: linear-gradient(135deg, #101f35, #142d48);
+    color: #ffffff;
+
+    border: 1px solid #35d9ff;
+    border-radius: 12px;
+
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+#excretory-options button:hover {
+    background: #164b68;
+    box-shadow: 0 0 12px rgba(53, 217, 255, 0.4);
+    transform: translateY(-2px);
+}
+/* MISSION 04–05 : ANSWER BUTTONS */
+#excretory-options button,
+#immune-options button {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    margin: 12px auto;
+    padding: 15px 20px;
+
+    background: linear-gradient(135deg, #101f35, #142d48);
+    color: #ffffff;
+
+    border: 1px solid #35d9ff;
+    border-radius: 12px;
+
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+#excretory-options button:hover,
+#immune-options button:hover {
+    background: #164b68;
+    box-shadow: 0 0 12px rgba(53, 217, 255, 0.4);
+    transform: translateY(-2px);
+}

@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUMANVERSE | Biology Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HOME PAGE -->
+    <div class="container" id="home-page">
+        <section class="hero-content">
+            <h1>HUMANVERSE</h1>
+            <h2>ปฏิบัติการสำรวจร่างกายมนุษย์</h2>
+            <p>ยินดีต้อนรับสู่อาณาจักรแห่งชีววิทยา</p>
+            <p>เรียนรู้ระบบต่าง ๆ ของร่างกายมนุษย์ผ่านเกมการเรียนรู้</p>
+            <button onclick="startAdventure()">เริ่มการผจญภัย</button>
+        </section>
+
+        <section class="hero-visual">
+            <div class="hologram-ring"></div>
+            <img
+                src="images/human-hologram.png"
+                alt="ภาพโฮโลแกรมร่างกายมนุษย์"
+                class="human-image"
+            >
+            <div class="scan-label">
+                HUMAN BODY SYSTEM
+                <span>SCANNING...</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- MISSION SELECT PAGE -->
+    <section id="mission-page" class="mission-page" style="display:none;">
+        <h1>MISSION SELECT</h1>
+        <h2>เลือกภารกิจสำรวจร่างกายมนุษย์</h2>
+
+        <div class="mission-list">
+
+            <div class="mission-card">
+                <h3>MISSION 01</h3>
+                <p>ระบบย่อยอาหาร</p>
+                <span>Digestive System</span>
+                <button onclick="openDigestiveMission()">เข้าสู่ภารกิจ</button>
+            </div>
+
+            <div class="mission-card">
+                <h3>MISSION 02</h3>
+                <p>ระบบหมุนเวียนเลือด</p>
+                <span>Circulatory System</span>
+                <button onclick="openCirculatoryMission()">เข้าสู่ภารกิจ</button>
+            </div>
+
+            <div class="mission-card">
+                <h3>MISSION 03</h3>
+                <p>ระบบหายใจ</p>
+                <span>Respiratory System</span>
+                <button onclick="openRespiratoryMission()">เข้าสู่ภารกิจ</button>
+            </div>
+
+            <div class="mission-card">
+                <h3>MISSION 04</h3>
+                <p>ระบบขับถ่าย</p>
+                <span>Excretory System</span>
+                <button onclick="openExcretoryMission()">เข้าสู่ภารกิจ</button>
+            </div>
+
+            <div class="mission-card">
+                <h3>MISSION 05</h3>
+                <p>ระบบภูมิคุ้มกัน</p>
+                <span>Immune System</span>
+                <button onclick="openImmuneMission()">เข้าสู่ภารกิจ</button>
+            </div>
+
+            <div class="mission-card">
+                <h3>MISSION REPORT</h3>
+                <p>รายงานผลการสำรวจ</p>
+                <span>สรุปคะแนนทั้ง 5 ภารกิจ</span>
+                <button onclick="showMissionReport()">ดูคะแนนรวม</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MISSION 01 : DIGESTIVE -->
+    <section id="digestive-page" class="mission-page" style="display:none;">
+        <h1>MISSION 01</h1>
+        <h2>ภารกิจสำรวจระบบย่อยอาหาร</h2>
+
+        <div class="digestive-gallery">
+            <img src="images/1.png" alt="ภาพระบบย่อยอาหาร 1">
+            <img src="images/2.png" alt="ภาพระบบย่อยอาหาร 2">
+            <img src="images/3.png" alt="ภาพระบบย่อยอาหาร 3">
+        </div>
+
+        <div class="food-game">
+            <h2>MISSION 01 : FOOD JOURNEY</h2>
+            <h3>ภารกิจตามรอยเส้นทางอาหาร</h3>
+            <p>จงเลือกคำตอบที่ถูกต้องเกี่ยวกับระบบย่อยอาหาร</p>
+
+            <div id="game-progress"></div>
+            <div id="game-question"></div>
+            <div id="game-options"></div>
+            <p id="game-feedback"></p>
+        </div>
+
+        <div class="mission-card digestive-info">
+            <h3>DIGESTIVE SYSTEM</h3>
+            <p>เรียนรู้การทำงานของอวัยวะในระบบย่อยอาหาร</p>
+            <p>ตั้งแต่ปาก หลอดอาหาร กระเพาะอาหาร ลำไส้เล็ก จนถึงลำไส้ใหญ่</p>
+        </div>
+
+        <button class="back-button" onclick="backToMissions()">
+            กลับไปเลือกภารกิจ
+        </button>
+    </section>
+
+    <!-- MISSION 02 : CIRCULATORY -->
+    <section id="circulatory-page" class="mission-page" style="display:none;">
+        <h1>MISSION 02</h1>
+        <h2>ภารกิจสำรวจระบบหมุนเวียนเลือด</h2>
+
+        <div class="food-game">
+            <h2>MISSION 02 : BLOOD JOURNEY</h2>
+            <h3>ภารกิจตามรอยการไหลเวียนเลือด</h3>
+            <p>ทดสอบความรู้เกี่ยวกับหัวใจ เลือด และหลอดเลือด</p>
+
+            <div class="circulatory-gallery">
+                <img src="images/4.png" alt="ภาพระบบหมุนเวียนเลือด">
+                <img src="images/5.png" alt="ภาพโครงสร้างหัวใจ">
+                <img src="images/6.png" alt="ภาพส่วนประกอบของเลือด">
+                <img src="images/7.png" alt="ภาพการไหลเวียนเลือด">
+                <img src="images/8.png" alt="ภาพระบบหัวใจและหลอดเลือด">
+                <img src="images/9.png" alt="ภาพประกอบระบบหมุนเวียนเลือด">
+            </div>
+
+            <div id="blood-progress"></div>
+            <div id="blood-question"></div>
+            <div id="blood-options"></div>
+            <p id="blood-feedback"></p>
+        </div>
+
+        <button class="back-button" onclick="backToMissions()">
+            กลับไปเลือกภารกิจ
+        </button>
+    </section>
+
+    <!-- MISSION 03 : RESPIRATORY -->
+    <section id="respiratory-page" class="mission-page" style="display:none;">
+        <h1>MISSION 03</h1>
+        <h2>ภารกิจสำรวจระบบหายใจ</h2>
+
+        <div class="food-game">
+            <h2>MISSION 03 : AIR JOURNEY</h2>
+            <h3>ภารกิจตามรอยการเดินทางของอากาศ</h3>
+            <p>เรียนรู้เกี่ยวกับอวัยวะในระบบหายใจและการแลกเปลี่ยนแก๊ส</p>
+
+            <div class="respiratory-gallery">
+                <img src="images/10.png" alt="ภาพระบบหายใจ">
+                <img src="images/11.png" alt="ภาพเส้นทางการเดินทางของอากาศ">
+                <img src="images/12.png" alt="ภาพการแลกเปลี่ยนแก๊สที่ถุงลมปอด">
+                <img src="images/13.png" alt="ภาพกลไกการหายใจเข้าและหายใจออก">
+                <img src="images/14.png" alt="ภาพสุขภาพและโรคของระบบหายใจ">
+            </div>
+
+            <div id="respiratory-progress"></div>
+            <div id="respiratory-question"></div>
+            <div id="respiratory-options"></div>
+            <p id="respiratory-feedback"></p>
+        </div>
+
+        <button class="back-button" onclick="backToMissions()">
+            กลับไปเลือกภารกิจ
+        </button>
+    </section>
+
+    <!-- MISSION 04 : EXCRETORY -->
+<section id="excretory-page" class="mission-page" style="display:none;">
+    <h1>MISSION 04</h1>
+    <h2>ภารกิจสำรวจระบบขับถ่าย</h2>
+
+    <div class="food-game">
+        <h2>MISSION 04 : WASTE JOURNEY</h2>
+        <h3>ภารกิจตามรอยการกำจัดของเสีย</h3>
+        <p>ทดสอบความรู้เกี่ยวกับไต หน่วยไต และการสร้างปัสสาวะ</p>
+
+        <div class="excretory-gallery">
+            <img src="images/15.png" alt="ภาพระบบขับถ่าย">
+            <img src="images/16.png" alt="ภาพโครงสร้างไต">
+            <img src="images/17.png" alt="ภาพหน่วยไต">
+            <img src="images/18.png" alt="ภาพกระบวนการสร้างปัสสาวะ">
+            <img src="images/19.png" alt="ภาพการทำงานของระบบขับถ่าย">
+        </div>
+
+        <div id="excretory-progress"></div>
+        <div id="excretory-question"></div>
+        <div id="excretory-options"></div>
+        <p id="excretory-feedback"></p>
+    </div>
+
+    <button class="back-button" onclick="backToMissions()">
+        กลับไปเลือกภารกิจ
+    </button>
+</section>
+
+<!-- MISSION 05 : IMMUNE -->
+
+    <!-- MISSION 05 : IMMUNE -->
+    <section id="immune-page" class="mission-page" style="display:none;">
+        <h1>MISSION 05</h1>
+        <h2>ภารกิจสำรวจระบบภูมิคุ้มกัน</h2>
+
+        <div class="food-game">
+            <h2>MISSION 05 : IMMUNE DEFENSE</h2>
+            <h3>ภารกิจปกป้องร่างกายมนุษย์</h3>
+            <p>ทดสอบความรู้เกี่ยวกับระบบภูมิคุ้มกันและการป้องกันเชื้อโรค</p>
+<div class="immune-gallery">
+    <img src="images/20.png" alt="ภาพระบบภูมิคุ้มกัน">
+    <img src="images/21.png" alt="ภาพอวัยวะในระบบภูมิคุ้มกัน">
+    <img src="images/22.png" alt="ภาพเม็ดเลือดขาว">
+    <img src="images/23.png" alt="ภาพการทำลายเชื้อโรค">
+    <img src="images/24.png" alt="ภาพแอนติเจนและแอนติบอดี">
+    <img src="images/25.png" alt="ภาพการตอบสนองของภูมิคุ้มกัน">
+    <img src="images/26.png" alt="ภาพเซลล์บี">
+    <img src="images/27.png" alt="ภาพเซลล์ที">
+    <img src="images/28.png" alt="ภาพการสร้างภูมิคุ้มกัน">
+    <img src="images/29.png" alt="ภาพวัคซีน">
+    <img src="images/30.png" alt="ภาพเซลล์ความจำ">
+</div>
+            <div id="immune-progress"></div>
+            <div id="immune-question"></div>
+            <div id="immune-options"></div>
+            <p id="immune-feedback"></p>
+        </div>
+
+        <button class="back-button" onclick="backToMissions()">
+            กลับไปเลือกภารกิจ
+        </button>
+    </section>
+
+    <!-- MISSION REPORT PAGE -->
+    <section id="report-page" class="mission-page" style="display:none;">
+        <h1>MISSION REPORT</h1>
+        <h2>รายงานผลการสำรวจร่างกายมนุษย์</h2>
+
+        <div class="food-game">
+            <h3>ผลคะแนนแต่ละภารกิจ</h3>
+
+            <p>MISSION 01 : ระบบย่อยอาหาร</p>
+            <h2 id="report-digestive">ยังไม่ทำภารกิจ</h2>
+
+            <p>MISSION 02 : ระบบหมุนเวียนเลือด</p>
+            <h2 id="report-circulatory">ยังไม่ทำภารกิจ</h2>
+
+            <p>MISSION 03 : ระบบหายใจ</p>
+            <h2 id="report-respiratory">ยังไม่ทำภารกิจ</h2>
+
+            <p>MISSION 04 : ระบบขับถ่าย</p>
+            <h2 id="report-excretory">ยังไม่ทำภารกิจ</h2>
+
+            <p>MISSION 05 : ระบบภูมิคุ้มกัน</p>
+            <h2 id="report-immune">ยังไม่ทำภารกิจ</h2>
+
+            <hr>
+
+            <h2>คะแนนรวมทั้งหมด</h2>
+            <h1 id="report-total">0 / 50</h1>
+        </div>
+
+        <button class="back-button" onclick="backToMissions()">
+            กลับไปเลือกภารกิจ
+        </button>
+    </section>
+
+    <!-- GAME SCRIPT -->
+    <script>
+
+        // =========================
+        // ระบบเปลี่ยนหน้า
+        // =========================
+
+        const pageIds = [
+            "home-page",
+            "mission-page",
+            "digestive-page",
+            "circulatory-page",
+            "respiratory-page",
+            "excretory-page",
+            "immune-page",
+            "report-page"
+        ];
+
+        function showPage(pageId) {
+            pageIds.forEach(id => {
+                document.getElementById(id).style.display = "none";
+            });
+
+            document.getElementById(pageId).style.display =
+                pageId === "home-page" ? "flex" : "block";
+        }
+
+        function startAdventure() {
+            showPage("mission-page");
+        }
+
+        function openDigestiveMission() {
+            showPage("digestive-page");
+            restartGame();
+        }
+
+        function openCirculatoryMission() {
+            showPage("circulatory-page");
+            restartBloodGame();
+        }
+
+        function openRespiratoryMission() {
+            showPage("respiratory-page");
+            restartRespiratoryGame();
+        }
+
+        function openExcretoryMission() {
+            showPage("excretory-page");
+            restartExcretoryGame();
+        }
+
+        function openImmuneMission() {
+            showPage("immune-page");
+            restartImmuneGame();
+        }
+
+        function backToMissions() {
+            showPage("mission-page");
+        }
+
+        // =========================
+        // ระบบเก็บคะแนนรวม
+        // =========================
+
+        let totalScores = {
+            digestive: null,
+            circulatory: null,
+            respiratory: null,
+            excretory: null,
+            immune: null
+        };
+
+        function showMissionReport() {
+            showPage("report-page");
+
+            const total = Object.values(totalScores)
+                .reduce((sum, value) => sum + (value ?? 0), 0);
+
+            document.getElementById("report-digestive").textContent =
+                totalScores.digestive === null
+                    ? "ยังไม่ทำภารกิจ"
+                    : totalScores.digestive + " / 10";
+
+            document.getElementById("report-circulatory").textContent =
+                totalScores.circulatory === null
+                    ? "ยังไม่ทำภารกิจ"
+                    : totalScores.circulatory + " / 10";
+
+            document.getElementById("report-respiratory").textContent =
+                totalScores.respiratory === null
+                    ? "ยังไม่ทำภารกิจ"
+                    : totalScores.respiratory + " / 10";
+
+            document.getElementById("report-excretory").textContent =
+                totalScores.excretory === null
+                    ? "ยังไม่ทำภารกิจ"
+                    : totalScores.excretory + " / 10";
+
+            document.getElementById("report-immune").textContent =
+                totalScores.immune === null
+                    ? "ยังไม่ทำภารกิจ"
+                    : totalScores.immune + " / 10";
+
+            document.getElementById("report-total").textContent =
+                total + " / 50";
+        }
+
+        // =========================
+        // MISSION 01 : FOOD JOURNEY
+        // =========================
+
+        const questions = [
+            {
+                question: "1. อวัยวะใดเป็นจุดเริ่มต้นของการย่อยอาหาร?",
+                options: ["กระเพาะอาหาร", "ปาก", "หลอดอาหาร", "ลำไส้เล็ก"],
+                answer: "ปาก",
+                explanation: "ปากเป็นจุดเริ่มต้นของการย่อยอาหาร โดยมีฟันช่วยบดเคี้ยว และน้ำลายช่วยย่อยแป้ง"
+            },
+            {
+                question: "2. หลังจากอาหารถูกกลืน อาหารจะผ่านอวัยวะใด?",
+                options: ["หลอดลม", "หลอดอาหาร", "ลำไส้ใหญ่", "ตับ"],
+                answer: "หลอดอาหาร",
+                explanation: "หลอดอาหารทำหน้าที่ลำเลียงอาหารไปยังกระเพาะอาหารด้วยการบีบตัวเป็นคลื่น"
+            },
+            {
+                question: "3. อวัยวะใดทำหน้าที่คลุกเคล้าอาหารกับน้ำย่อย?",
+                options: ["กระเพาะอาหาร", "หลอดอาหาร", "ลำไส้ใหญ่", "ปาก"],
+                answer: "กระเพาะอาหาร",
+                explanation: "กระเพาะอาหารบีบตัวเพื่อคลุกเคล้าอาหารกับน้ำย่อย และเริ่มย่อยโปรตีน"
+            },
+            {
+                question: "4. น้ำลายมีเอนไซม์ชนิดใดที่ช่วยย่อยแป้ง?",
+                options: ["เพปซิน", "อะไมเลส", "ไลเปส", "ทริปซิน"],
+                answer: "อะไมเลส",
+                explanation: "อะไมเลสในน้ำลายช่วยย่อยแป้งให้เป็นน้ำตาลที่มีโมเลกุลเล็กลง"
+            },
+            {
+                question: "5. สารอาหารประเภทใดเริ่มถูกย่อยในกระเพาะอาหาร?",
+                options: ["คาร์โบไฮเดรต", "โปรตีน", "วิตามิน", "เกลือแร่"],
+                answer: "โปรตีน",
+                explanation: "เอนไซม์เพปซินในกระเพาะอาหารทำหน้าที่ย่อยโปรตีน"
+            },
+            {
+                question: "6. อวัยวะใดเป็นบริเวณหลักในการดูดซึมสารอาหาร?",
+                options: ["กระเพาะอาหาร", "ลำไส้เล็ก", "หลอดอาหาร", "ลำไส้ใหญ่"],
+                answer: "ลำไส้เล็ก",
+                explanation: "ลำไส้เล็กมีวิลลัสและไมโครวิลลัสช่วยเพิ่มพื้นที่ผิวในการดูดซึมสารอาหาร"
+            },
+            {
+                question: "7. น้ำดีสร้างจากอวัยวะใด?",
+                options: ["ตับ", "ตับอ่อน", "กระเพาะอาหาร", "ถุงน้ำดี"],
+                answer: "ตับ",
+                explanation: "ตับเป็นอวัยวะที่สร้างน้ำดี ส่วนถุงน้ำดีทำหน้าที่เก็บสะสมน้ำดี"
+            },
+            {
+                question: "8. น้ำดีมีหน้าที่สำคัญอย่างไรในการย่อยอาหาร?",
+                options: [
+                    "ย่อยโปรตีน",
+                    "ย่อยแป้ง",
+                    "ช่วยทำให้ไขมันแตกเป็นหยดเล็ก ๆ",
+                    "ดูดซึมน้ำ"
+                ],
+                answer: "ช่วยทำให้ไขมันแตกเป็นหยดเล็ก ๆ",
+                explanation: "น้ำดีช่วยทำให้ไขมันแตกตัวเป็นหยดเล็ก ๆ เพิ่มพื้นที่ให้เอนไซม์ไลเปสทำงาน"
+            },
+            {
+                question: "9. ลำไส้ใหญ่มีหน้าที่สำคัญอย่างไร?",
+                options: [
+                    "ย่อยโปรตีน",
+                    "ดูดซึมน้ำและเกลือแร่บางส่วน",
+                    "สร้างน้ำดี",
+                    "ย่อยแป้ง"
+                ],
+                answer: "ดูดซึมน้ำและเกลือแร่บางส่วน",
+                explanation: "ลำไส้ใหญ่ทำหน้าที่ดูดซึมน้ำและเกลือแร่บางส่วน รวมทั้งช่วยก่อตัวเป็นอุจจาระ"
+            },
+            {
+                question: "10. อวัยวะใดเป็นทางออกของกากอาหาร?",
+                options: ["ลำไส้เล็ก", "กระเพาะอาหาร", "ทวารหนัก", "หลอดอาหาร"],
+                answer: "ทวารหนัก",
+                explanation: "ทวารหนักเป็นช่องทางขับถ่ายอุจจาระออกจากร่างกาย"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        function showQuestion() {
+            const q = questions[currentQuestion];
+            answered = false;
+
+            document.getElementById("game-progress").textContent =
+                "QUESTION " + (currentQuestion + 1) + " / " + questions.length;
+
+            document.getElementById("game-question").innerHTML =
+                `<p>${q.question}</p>`;
+
+            document.getElementById("game-options").innerHTML =
+                q.options.map((option, index) =>
+                    `<button class="answer-button" onclick="checkAnswer(${index})">${option}</button>`
+                ).join("");
+
+            document.getElementById("game-feedback").textContent = "";
+            document.getElementById("game-feedback").className = "";
+        }
+
+        function checkAnswer(selectedIndex) {
+            if (answered) return;
+
+            answered = true;
+
+            const q = questions[currentQuestion];
+            const selectedAnswer = q.options[selectedIndex];
+            const feedback = document.getElementById("game-feedback");
+
+            if (selectedAnswer === q.answer) {
+                score++;
+
+                feedback.innerHTML =
+                    "✓ ถูกต้อง! เก่งมาก<br>" + q.explanation;
+
+                feedback.className = "correct-feedback";
+
+            } else {
+                feedback.innerHTML =
+                    "✕ ยังไม่ถูกต้อง<br>คำตอบที่ถูกคือ " +
+                    q.answer + "<br>" + q.explanation;
+
+                feedback.className = "wrong-feedback";
+            }
+
+            document.getElementById("game-options").innerHTML =
+                `<button class="next-button" onclick="nextQuestion()">ไปข้อต่อไป</button>`;
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+
+            if (currentQuestion >= questions.length) {
+                showResult();
+                return;
+            }
+
+            showQuestion();
+        }
+
+        function showResult() {
+            totalScores.digestive = score;
+
+            document.getElementById("game-progress").textContent =
+                "MISSION COMPLETED";
+
+            document.getElementById("game-question").innerHTML =
+                "<h3>MISSION COMPLETE!</h3>";
+
+            document.getElementById("game-options").innerHTML =
+                `<div class="final-score">
+                    <p>คะแนนของคุณ</p>
+                    <strong>${score} / ${questions.length}</strong>
+                    <p>${score >= 8
+                        ? "ยอดเยี่ยม! คุณเข้าใจระบบย่อยอาหารเป็นอย่างดี"
+                        : score >= 5
+                            ? "ทำได้ดี! ลองทบทวนเนื้อหาเพิ่มเติมอีกนิด"
+                            : "ลองทบทวนบทเรียนแล้วกลับมาท้าทายอีกครั้ง"}</p>
+                    <button class="next-button" onclick="restartGame()">เล่นอีกครั้ง</button>
+                    <button class="next-button" onclick="backToMissions()">กลับไปเลือกภารกิจ</button>
+                </div>`;
+
+            document.getElementById("game-feedback").textContent =
+                "ยินดีด้วย! คุณทำภารกิจสำเร็จแล้ว";
+
+            document.getElementById("game-feedback").className =
+                "correct-feedback";
+        }
+
+        function restartGame() {
+            currentQuestion = 0;
+            score = 0;
+            answered = false;
+            showQuestion();
+        }
+
+        // =========================
+        // MISSION 02 : BLOOD JOURNEY
+        // =========================
+
+        const bloodQuestions = [
+            {
+                question: "1. อวัยวะใดทำหน้าที่สูบฉีดเลือดไปยังส่วนต่าง ๆ ของร่างกาย",
+                options: ["ปอด", "หัวใจ", "ตับ", "ไต"],
+                answer: 1,
+                explanation: "หัวใจทำหน้าที่สูบฉีดเลือดผ่านหลอดเลือดไปยังส่วนต่าง ๆ ของร่างกาย"
+            },
+            {
+                question: "2. หัวใจของมนุษย์มีกี่ห้อง",
+                options: ["2 ห้อง", "3 ห้อง", "4 ห้อง", "5 ห้อง"],
+                answer: 2,
+                explanation: "หัวใจมนุษย์มี 4 ห้อง ได้แก่ ห้องบนซ้าย ห้องบนขวา ห้องล่างซ้าย และห้องล่างขวา"
+            },
+            {
+                question: "3. หลอดเลือดชนิดใดนำเลือดออกจากหัวใจ",
+                options: ["หลอดเลือดแดง", "หลอดเลือดดำ", "หลอดเลือดฝอย", "ท่อน้ำเหลือง"],
+                answer: 0,
+                explanation: "หลอดเลือดแดงทำหน้าที่นำเลือดออกจากหัวใจไปยังส่วนต่าง ๆ ของร่างกาย"
+            },
+            {
+                question: "4. หลอดเลือดชนิดใดนำเลือดกลับเข้าสู่หัวใจ",
+                options: ["หลอดเลือดแดง", "หลอดเลือดดำ", "หลอดเลือดฝอย", "หลอดเลือดแดงใหญ่"],
+                answer: 1,
+                explanation: "หลอดเลือดดำนำเลือดจากส่วนต่าง ๆ ของร่างกายกลับเข้าสู่หัวใจ"
+            },
+            {
+                question: "5. เม็ดเลือดแดงมีหน้าที่สำคัญอย่างไร",
+                options: [
+                    "ทำลายเชื้อโรค",
+                    "ช่วยให้เลือดแข็งตัว",
+                    "ลำเลียงออกซิเจน",
+                    "สร้างฮอร์โมน"
+                ],
+                answer: 2,
+                explanation: "เม็ดเลือดแดงมีฮีโมโกลบินช่วยจับและลำเลียงออกซิเจนไปยังเซลล์ต่าง ๆ"
+            },
+            {
+                question: "6. เม็ดเลือดขาวมีหน้าที่ใด",
+                options: [
+                    "ลำเลียงออกซิเจน",
+                    "ป้องกันและกำจัดเชื้อโรค",
+                    "ลำเลียงสารอาหาร",
+                    "ช่วยให้เลือดมีสีแดง"
+                ],
+                answer: 1,
+                explanation: "เม็ดเลือดขาวเป็นส่วนสำคัญของระบบภูมิคุ้มกัน ช่วยป้องกันและกำจัดเชื้อโรค"
+            },
+            {
+                question: "7. ส่วนประกอบของเลือดชนิดใดมีบทบาทในการแข็งตัวของเลือด",
+                options: ["เม็ดเลือดแดง", "เม็ดเลือดขาว", "เกล็ดเลือด", "พลาสมาเท่านั้น"],
+                answer: 2,
+                explanation: "เกล็ดเลือดช่วยในการห้ามเลือดและกระบวนการแข็งตัวของเลือด"
+            },
+            {
+                question: "8. เลือดจากหัวใจห้องล่างขวาถูกส่งไปยังอวัยวะใด",
+                options: ["สมอง", "ปอด", "ตับ", "ไต"],
+                answer: 1,
+                explanation: "หัวใจห้องล่างขวาสูบฉีดเลือดไปยังปอดเพื่อแลกเปลี่ยนแก๊ส"
+            },
+            {
+                question: "9. หัวใจห้องล่างซ้ายทำหน้าที่ใด",
+                options: [
+                    "รับเลือดจากปอด",
+                    "ส่งเลือดไปยังปอด",
+                    "รับเลือดจากร่างกาย",
+                    "สูบฉีดเลือดไปเลี้ยงทั่วร่างกาย"
+                ],
+                answer: 3,
+                explanation: "หัวใจห้องล่างซ้ายสูบฉีดเลือดที่มีออกซิเจนสูงออกทางหลอดเลือดแดงใหญ่ไปเลี้ยงทั่วร่างกาย"
+            },
+            {
+                question: "10. การไหลเวียนเลือดของมนุษย์จัดเป็นระบบแบบใด",
+                options: [
+                    "ระบบวงจรเปิด",
+                    "ระบบวงจรปิด",
+                    "ระบบไม่มีหัวใจ",
+                    "ระบบไหลเวียนทางเดียวโดยไม่มีหลอดเลือด"
+                ],
+                answer: 1,
+                explanation: "มนุษย์มีระบบหมุนเวียนเลือดแบบวงจรปิด โดยเลือดไหลอยู่ภายในหัวใจและหลอดเลือด"
+            }
+        ];
+
+        let bloodCurrentQuestion = 0;
+        let bloodScore = 0;
+        let bloodAnswered = false;
+
+        function showBloodQuestion() {
+            const q = bloodQuestions[bloodCurrentQuestion];
+
+            bloodAnswered = false;
+
+            document.getElementById("blood-progress").textContent =
+                "QUESTION " + (bloodCurrentQuestion + 1) + " / " + bloodQuestions.length;
+
+            document.getElementById("blood-question").innerHTML =
+                `<p>${q.question}</p>`;
+
+            document.getElementById("blood-feedback").textContent = "";
+            document.getElementById("blood-feedback").className = "";
+
+            const options = document.getElementById("blood-options");
+            options.innerHTML = "";
+
+            q.options.forEach((option, index) => {
+                const button = document.createElement("button");
+
+                button.className = "answer-button";
+                button.textContent = option;
+                button.onclick = () => checkBloodAnswer(index);
+
+                options.appendChild(button);
+            });
+        }
+
+        function checkBloodAnswer(selectedIndex) {
+            if (bloodAnswered) return;
+
+            bloodAnswered = true;
+
+            const q = bloodQuestions[bloodCurrentQuestion];
+            const feedback = document.getElementById("blood-feedback");
+            const options = document.getElementById("blood-options");
+            const buttons = options.querySelectorAll(".answer-button");
+
+            if (selectedIndex === q.answer) {
+                bloodScore++;
+
+                feedback.innerHTML =
+                    "✓ ถูกต้อง! เก่งมาก<br>" + q.explanation;
+
+                feedback.className = "correct-feedback";
+
+            } else {
+                feedback.innerHTML =
+                    "✕ ยังไม่ถูกต้อง<br>คำตอบที่ถูกคือ " +
+                    q.options[q.answer] + "<br>" + q.explanation;
+
+                feedback.className = "wrong-feedback";
+            }
+
+            buttons.forEach((button, index) => {
+                button.disabled = true;
+
+                if (index === q.answer) {
+                    button.style.borderColor = "#35e6a1";
+                    button.style.backgroundColor = "#14513f";
+                } else if (index === selectedIndex) {
+                    button.style.borderColor = "#ff647c";
+                    button.style.backgroundColor = "#542638";
+                }
+            });
+
+            const nextButton = document.createElement("button");
+
+            nextButton.className = "next-button";
+            nextButton.textContent =
+                bloodCurrentQuestion === bloodQuestions.length - 1
+                    ? "ดูผลคะแนน"
+                    : "ข้อต่อไป";
+
+            nextButton.onclick = nextBloodQuestion;
+            options.appendChild(nextButton);
+        }
+
+        function nextBloodQuestion() {
+            bloodCurrentQuestion++;
+
+            if (bloodCurrentQuestion < bloodQuestions.length) {
+                showBloodQuestion();
+            } else {
+                showBloodResult();
+            }
+        }
+
+        function showBloodResult() {
+            totalScores.circulatory = bloodScore;
+
+            document.getElementById("blood-progress").textContent =
+                "MISSION COMPLETED";
+
+            document.getElementById("blood-question").innerHTML =
+                "<h3>MISSION COMPLETE!</h3>";
+
+            document.getElementById("blood-feedback").textContent =
+                "คุณทำภารกิจสำเร็จแล้ว";
+
+            document.getElementById("blood-feedback").className =
+                "correct-feedback";
+
+            document.getElementById("blood-options").innerHTML =
+                `<div class="final-score">
+                    <p>คะแนนของคุณ</p>
+                    <strong>${bloodScore} / ${bloodQuestions.length}</strong>
+                    <p>${bloodScore >= 8
+                        ? "ยอดเยี่ยม! คุณเข้าใจระบบหมุนเวียนเลือดเป็นอย่างดี"
+                        : bloodScore >= 5
+                            ? "ทำได้ดี! ลองทบทวนเนื้อหาเพิ่มเติมอีกนิด"
+                            : "ลองทบทวนบทเรียนแล้วกลับมาท้าทายอีกครั้ง"}</p>
+                    <button class="next-button" onclick="restartBloodGame()">เล่นอีกครั้ง</button>
+                    <button class="next-button" onclick="backToMissions()">กลับไปเลือกภารกิจ</button>
+                </div>`;
+        }
+
+        function restartBloodGame() {
+            bloodCurrentQuestion = 0;
+            bloodScore = 0;
+            bloodAnswered = false;
+            showBloodQuestion();
+        }
+
+        // =========================
+        // MISSION 03 : AIR JOURNEY
+        // =========================
+
+        const respiratoryQuestions = [
+            {
+                question: "1. อวัยวะใดเป็นทางผ่านของอากาศเข้าสู่ร่างกายเป็นอันดับแรกตามปกติ?",
+                options: ["หลอดลม", "โพรงจมูก", "กล่องเสียง", "หลอดลมฝอย"],
+                answer: 1,
+                explanation: "โพรงจมูกเป็นทางผ่านของอากาศ ช่วยกรองฝุ่นละออง เพิ่มความชื้น และปรับอุณหภูมิของอากาศ"
+            },
+            {
+                question: "2. อวัยวะใดทำหน้าที่เป็นทางผ่านของอากาศและมีสายเสียงอยู่?",
+                options: ["หลอดอาหาร", "หลอดลม", "กล่องเสียง", "ถุงลมปอด"],
+                answer: 2,
+                explanation: "กล่องเสียงเป็นทางผ่านของอากาศและเป็นตำแหน่งที่มีสายเสียง"
+            },
+            {
+                question: "3. โครงสร้างใดช่วยป้องกันไม่ให้อาหารเข้าสู่หลอดลมขณะกลืน?",
+                options: ["ฝาปิดกล่องเสียง", "กะบังลม", "เยื่อหุ้มปอด", "ถุงลมปอด"],
+                answer: 0,
+                explanation: "ฝาปิดกล่องเสียงจะปิดทางเข้าหลอดลมขณะกลืนอาหาร ช่วยป้องกันอาหารเข้าสู่ทางเดินหายใจ"
+            },
+            {
+                question: "4. โครงสร้างใดมีลักษณะเป็นถุงเล็ก ๆ จำนวนมากภายในปอด?",
+                options: ["หลอดลม", "กล่องเสียง", "หลอดอาหาร", "ถุงลมปอด"],
+                answer: 3,
+                explanation: "ถุงลมปอดมีจำนวนมากและมีผนังบาง เป็นบริเวณสำคัญในการแลกเปลี่ยนแก๊ส"
+            },
+            {
+                question: "5. การแลกเปลี่ยนแก๊สระหว่างถุงลมปอดกับหลอดเลือดฝอยเกิดขึ้นโดยวิธีใด?",
+                options: ["การลำเลียงแบบใช้พลังงาน", "การแพร่", "การออสโมซิส", "การย่อยสลาย"],
+                answer: 1,
+                explanation: "แก๊สออกซิเจนและคาร์บอนไดออกไซด์แพร่ผ่านผนังถุงลมและหลอดเลือดฝอยตามความแตกต่างของความดันย่อย"
+            },
+            {
+                question: "6. ขณะหายใจเข้า กะบังลมมีการเปลี่ยนแปลงอย่างไร?",
+                options: [
+                    "คลายตัวและโค้งสูงขึ้น",
+                    "หดตัวและเลื่อนต่ำลง",
+                    "คลายตัวและเลื่อนต่ำลง",
+                    "หดตัวและโค้งสูงขึ้น"
+                ],
+                answer: 1,
+                explanation: "ขณะหายใจเข้า กะบังลมหดตัวและเลื่อนต่ำลง ทำให้ช่องอกมีปริมาตรเพิ่มขึ้น"
+            },
+            {
+                question: "7. ขณะหายใจออกตามปกติ ปริมาตรของช่องอกเปลี่ยนแปลงอย่างไร?",
+                options: [
+                    "เพิ่มขึ้น",
+                    "คงที่",
+                    "ลดลง",
+                    "เพิ่มขึ้นแล้วคงที่"
+                ],
+                answer: 2,
+                explanation: "ขณะหายใจออกตามปกติ กะบังลมคลายตัวและโค้งสูงขึ้น ทำให้ปริมาตรช่องอกลดลง"
+            },
+            {
+                question: "8. แก๊สชนิดใดแพร่จากถุงลมปอดเข้าสู่หลอดเลือดฝอย?",
+                options: ["ออกซิเจน", "คาร์บอนไดออกไซด์", "ไนโตรเจน", "ไฮโดรเจน"],
+                answer: 0,
+                explanation: "ออกซิเจนแพร่จากถุงลมปอดเข้าสู่หลอดเลือดฝอย เพื่อนำไปลำเลียงยังเซลล์ต่าง ๆ"
+            },
+            {
+                question: "9. สารใดในควันบุหรี่ที่จับกับฮีโมโกลบินและรบกวนการลำเลียงออกซิเจน?",
+                options: ["ออกซิเจน", "คาร์บอนไดออกไซด์", "คาร์บอนมอนอกไซด์", "ไนโตรเจน"],
+                answer: 2,
+                explanation: "คาร์บอนมอนอกไซด์จับกับฮีโมโกลบินได้ดี ทำให้ความสามารถในการลำเลียงออกซิเจนลดลง"
+            },
+            {
+                question: "10. การแลกเปลี่ยนแก๊สระหว่างเลือดกับเซลล์ของร่างกายเกิดขึ้นที่ใด?",
+                options: ["ถุงลมปอด", "หลอดเลือดฝอยบริเวณเนื้อเยื่อ", "หลอดลม", "โพรงจมูก"],
+                answer: 1,
+                explanation: "บริเวณหลอดเลือดฝอยของเนื้อเยื่อ ออกซิเจนจะแพร่จากเลือดเข้าสู่เซลล์ และคาร์บอนไดออกไซด์จะแพร่จากเซลล์เข้าสู่เลือด"
+            }
+        ];
+
+        let respiratoryCurrentQuestion = 0;
+        let respiratoryScore = 0;
+        let respiratoryAnswered = false;
+
+        function showRespiratoryQuestion() {
+            const questionBox =
+                document.getElementById("respiratory-question");
+
+            const optionsBox =
+                document.getElementById("respiratory-options");
+
+            const feedbackBox =
+                document.getElementById("respiratory-feedback");
+
+            const progressBox =
+                document.getElementById("respiratory-progress");
+
+            const current =
+                respiratoryQuestions[respiratoryCurrentQuestion];
+
+            respiratoryAnswered = false;
+
+            feedbackBox.innerHTML = "";
+            feedbackBox.className = "";
+
+            progressBox.textContent =
+                "QUESTION " +
+                (respiratoryCurrentQuestion + 1) +
+                " / " +
+                respiratoryQuestions.length;
+
+            questionBox.innerHTML = `<p>${current.question}</p>`;
+
+            optionsBox.innerHTML = "";
+
+            current.options.forEach((option, index) => {
+                const button = document.createElement("button");
+
+                button.className = "answer-button";
+                button.textContent = option;
+                button.onclick = () => checkRespiratoryAnswer(index);
+
+                optionsBox.appendChild(button);
+            });
+        }
+
+        function checkRespiratoryAnswer(selectedIndex) {
+            if (respiratoryAnswered) return;
+
+            respiratoryAnswered = true;
+
+            const current =
+                respiratoryQuestions[respiratoryCurrentQuestion];
+
+            const optionsBox =
+                document.getElementById("respiratory-options");
+
+            const buttons =
+                optionsBox.querySelectorAll(".answer-button");
+
+            const feedbackBox =
+                document.getElementById("respiratory-feedback");
+
+            if (selectedIndex === current.answer) {
+                respiratoryScore++;
+
+                feedbackBox.innerHTML =
+                    "✓ ถูกต้อง!<br>" + current.explanation;
+
+                feedbackBox.className = "correct-feedback";
+
+            } else {
+                feedbackBox.innerHTML =
+                    "✕ ยังไม่ถูกต้อง<br>คำตอบที่ถูกคือ " +
+                    current.options[current.answer] +
+                    "<br>" + current.explanation;
+
+                feedbackBox.className = "wrong-feedback";
+            }
+
+            buttons.forEach((button, index) => {
+                button.disabled = true;
+
+                if (index === current.answer) {
+                    button.style.borderColor = "#35e6a1";
+                    button.style.backgroundColor = "#14513f";
+
+                } else if (index === selectedIndex) {
+                    button.style.borderColor = "#ff647c";
+                    button.style.backgroundColor = "#542638";
+                }
+            });
+
+            const nextButton = document.createElement("button");
+
+            nextButton.className = "next-button";
+
+            nextButton.textContent =
+                respiratoryCurrentQuestion === respiratoryQuestions.length - 1
+                    ? "ดูผลคะแนน"
+                    : "ข้อต่อไป";
+
+            nextButton.onclick = nextRespiratoryQuestion;
+
+            optionsBox.appendChild(nextButton);
+        }
+
+        function nextRespiratoryQuestion() {
+            respiratoryCurrentQuestion++;
+
+            if (respiratoryCurrentQuestion < respiratoryQuestions.length) {
+                showRespiratoryQuestion();
+            } else {
+                showRespiratoryResult();
+            }
+        }
+
+        function showRespiratoryResult() {
+            totalScores.respiratory = respiratoryScore;
+
+            document.getElementById("respiratory-progress").textContent =
+                "MISSION COMPLETED";
+
+            document.getElementById("respiratory-question").innerHTML =
+                "<h3>MISSION COMPLETE!</h3>";
+
+            document.getElementById("respiratory-options").innerHTML = "";
+
+            let message = "";
+
+            if (respiratoryScore >= 8) {
+                message = "ยอดเยี่ยม! คุณเข้าใจระบบหายใจเป็นอย่างดี";
+            } else if (respiratoryScore >= 5) {
+                message = "ทำได้ดี! ลองทบทวนเนื้อหาอีกเล็กน้อย";
+            } else {
+                message = "ลองศึกษาเนื้อหาอีกครั้ง แล้วกลับมาทำภารกิจใหม่นะ";
+            }
+
+            document.getElementById("respiratory-feedback").innerHTML =
+                `<div class="final-score">
+                    <h2>คะแนนของคุณ</h2>
+                    <h1>${respiratoryScore} / ${respiratoryQuestions.length}</h1>
+                    <p>${message}</p>
+                    <button class="next-button" onclick="restartRespiratoryGame()">เล่นอีกครั้ง</button>
+                    <button class="next-button" onclick="backToMissions()">กลับไปเลือกภารกิจ</button>
+                </div>`;
+        }
+
+        function restartRespiratoryGame() {
+            respiratoryCurrentQuestion = 0;
+            respiratoryScore = 0;
+            respiratoryAnswered = false;
+
+            showRespiratoryQuestion();
+        }
+
+        // =========================
+        // MISSION 04 : WASTE JOURNEY
+        // =========================
+
+        const excretoryQuestions = [
+            {
+                question: "1. อวัยวะใดทำหน้าที่กรองของเสียออกจากเลือดและสร้างปัสสาวะ?",
+                options: ["ตับ", "ไต", "ปอด", "ลำไส้ใหญ่"],
+                answer: 1,
+                explanation: "ไตทำหน้าที่กรองเลือด กำจัดของเสียและสารส่วนเกินออกจากร่างกายในรูปของปัสสาวะ"
+            },
+            {
+                question: "2. หน่วยทำงานพื้นฐานของไตเรียกว่าอะไร?",
+                options: ["นิวรอน", "แอลวีโอลัส", "หน่วยไต (เนฟรอน)", "วิลลัส"],
+                answer: 2,
+                explanation: "หน่วยไตหรือเนฟรอนเป็นหน่วยทำงานพื้นฐานของไต ทำหน้าที่กรองและปรับองค์ประกอบของของเหลวเพื่อสร้างปัสสาวะ"
+            },
+            {
+                question: "3. เลือดเข้าสู่ไตผ่านหลอดเลือดชนิดใด?",
+                options: ["หลอดเลือดแดงไต", "หลอดเลือดดำไต", "ท่อไต", "ท่อปัสสาวะ"],
+                answer: 0,
+                explanation: "หลอดเลือดแดงไตนำเลือดเข้าสู่ไตเพื่อนำสารต่าง ๆ ไปผ่านกระบวนการกรอง"
+            },
+            {
+                question: "4. การกรองสารจากเลือดเกิดขึ้นบริเวณใดของหน่วยไต?",
+                options: ["ท่อขดส่วนปลาย", "ห่วงเฮนเล", "ท่อรวม", "โกลเมอรูลัส"],
+                answer: 3,
+                explanation: "โกลเมอรูลัสเป็นกลุ่มหลอดเลือดฝอยที่ทำหน้าที่กรองน้ำและสารโมเลกุลขนาดเล็กออกจากเลือด"
+            },
+            {
+                question: "5. สารใดตามปกติไม่ควรพบในปัสสาวะของคนสุขภาพดี?",
+                options: ["น้ำ", "ยูเรีย", "กลูโคส", "เกลือแร่บางชนิด"],
+                answer: 2,
+                explanation: "กลูโคสที่ถูกกรองเข้าสู่ท่อหน่วยไตจะถูกดูดกลับเกือบทั้งหมด จึงไม่ควรพบในปัสสาวะตามปกติ"
+            },
+            {
+                question: "6. กระบวนการดูดกลับสารที่มีประโยชน์เกิดขึ้นที่ใด?",
+                options: ["ท่อหน่วยไต", "ท่อไต", "กระเพาะปัสสาวะ", "ท่อปัสสาวะ"],
+                answer: 0,
+                explanation: "ท่อหน่วยไตทำหน้าที่ดูดกลับน้ำและสารที่มีประโยชน์ เช่น กลูโคสและเกลือแร่ กลับเข้าสู่เลือด"
+            },
+            {
+                question: "7. ฮอร์โมน ADH มีผลต่อการทำงานของไตอย่างไร?",
+                options: [
+                    "เพิ่มการขับกลูโคส",
+                    "เพิ่มการดูดกลับน้ำ",
+                    "ยับยั้งการกรองเลือดทั้งหมด",
+                    "เพิ่มการสร้างยูเรีย"
+                ],
+                answer: 1,
+                explanation: "ADH ช่วยเพิ่มการดูดกลับน้ำที่บริเวณท่อหน่วยไตส่วนปลายและท่อรวม ทำให้ปัสสาวะเข้มข้นขึ้น"
+            },
+            {
+                question: "8. ท่อไตทำหน้าที่อะไร?",
+                options: [
+                    "กรองเลือด",
+                    "สร้างเม็ดเลือดแดง",
+                    "ลำเลียงปัสสาวะไปยังกระเพาะปัสสาวะ",
+                    "ขับปัสสาวะออกนอกร่างกาย"
+                ],
+                answer: 2,
+                explanation: "ท่อไตทำหน้าที่ลำเลียงปัสสาวะจากไตไปเก็บไว้ที่กระเพาะปัสสาวะ"
+            },
+            {
+                question: "9. อวัยวะใดทำหน้าที่เก็บสะสมปัสสาวะก่อนขับออกจากร่างกาย?",
+                options: ["ไต", "ท่อไต", "ท่อปัสสาวะ", "กระเพาะปัสสาวะ"],
+                answer: 3,
+                explanation: "กระเพาะปัสสาวะทำหน้าที่เก็บสะสมปัสสาวะชั่วคราวก่อนขับออกจากร่างกาย"
+            },
+            {
+                question: "10. สารของเสียไนโตรเจนที่เกิดจากการสลายกรดอะมิโนและถูกขับออกทางปัสสาวะเป็นหลักคืออะไร?",
+                options: ["ยูเรีย", "ออกซิเจน", "กลูโคส", "ไกลโคเจน"],
+                answer: 0,
+                explanation: "ยูเรียเกิดจากการเปลี่ยนแอมโมเนียในตับ และถูกลำเลียงทางเลือดมายังไตเพื่อขับออกทางปัสสาวะ"
+            }
+        ];
+
+        let excretoryCurrentQuestion = 0;
+        let excretoryScore = 0;
+        let excretoryAnswered = false;
+
+        function showExcretoryQuestion() {
+            const current = excretoryQuestions[excretoryCurrentQuestion];
+
+            excretoryAnswered = false;
+
+            document.getElementById("excretory-progress").textContent =
+                "QUESTION " + (excretoryCurrentQuestion + 1) +
+                " / " + excretoryQuestions.length;
+
+            document.getElementById("excretory-question").innerHTML =
+                `<p>${current.question}</p>`;
+
+            document.getElementById("excretory-feedback").innerHTML = "";
+            document.getElementById("excretory-feedback").className = "";
+
+            const optionsBox = document.getElementById("excretory-options");
+            optionsBox.innerHTML = "";
+
+            current.options.forEach((option, index) => {
+                const button = document.createElement("button");
+
+                button.className = "answer-button";
+                button.textContent = option;
+                button.onclick = () => checkExcretoryAnswer(index);
+
+                optionsBox.appendChild(button);
+            });
+        }
+
+        function checkExcretoryAnswer(selectedIndex) {
+            if (excretoryAnswered) return;
+
+            excretoryAnswered = true;
+
+            const current = excretoryQuestions[excretoryCurrentQuestion];
+            const feedbackBox = document.getElementById("excretory-feedback");
+            const optionsBox = document.getElementById("excretory-options");
+            const buttons = optionsBox.querySelectorAll(".answer-button");
+
+            if (selectedIndex === current.answer) {
+                excretoryScore++;
+
+                feedbackBox.innerHTML =
+                    "✓ ถูกต้อง!<br>" + current.explanation;
+
+                feedbackBox.className = "correct-feedback";
+
+            } else {
+                feedbackBox.innerHTML =
+                    "✕ ยังไม่ถูกต้อง<br>คำตอบที่ถูกคือ " +
+                    current.options[current.answer] +
+                    "<br>" + current.explanation;
+
+                feedbackBox.className = "wrong-feedback";
+            }
+
+            buttons.forEach((button, index) => {
+                button.disabled = true;
+
+                if (index === current.answer) {
+                    button.style.borderColor = "#35e6a1";
+                    button.style.backgroundColor = "#14513f";
+                } else if (index === selectedIndex) {
+                    button.style.borderColor = "#ff647c";
+                    button.style.backgroundColor = "#542638";
+                }
+            });
+
+            const nextButton = document.createElement("button");
+
+            nextButton.className = "next-button";
+            nextButton.textContent =
+                excretoryCurrentQuestion === excretoryQuestions.length - 1
+                    ? "ดูผลคะแนน"
+                    : "ข้อต่อไป";
+
+            nextButton.onclick = nextExcretoryQuestion;
+
+            optionsBox.appendChild(nextButton);
+        }
+
+        function nextExcretoryQuestion() {
+            excretoryCurrentQuestion++;
+
+            if (excretoryCurrentQuestion < excretoryQuestions.length) {
+                showExcretoryQuestion();
+            } else {
+                showExcretoryResult();
+            }
+        }
+
+        function showExcretoryResult() {
+            totalScores.excretory = excretoryScore;
+
+            document.getElementById("excretory-progress").textContent =
+                "MISSION COMPLETED";
+
+            document.getElementById("excretory-question").innerHTML =
+                "<h3>MISSION COMPLETE!</h3>";
+
+            let message = "";
+
+            if (excretoryScore >= 8) {
+                message = "ยอดเยี่ยม! คุณเข้าใจระบบขับถ่ายเป็นอย่างดี";
+            } else if (excretoryScore >= 5) {
+                message = "ทำได้ดี! ลองทบทวนเนื้อหาเพิ่มเติมอีกนิด";
+            } else {
+                message = "ลองทบทวนบทเรียนแล้วกลับมาท้าทายอีกครั้ง";
+            }
+
+            document.getElementById("excretory-feedback").innerHTML =
+                `<div class="final-score">
+                    <h2>คะแนนของคุณ</h2>
+                    <h1>${excretoryScore} / ${excretoryQuestions.length}</h1>
+                    <p>${message}</p>
+                    <button class="next-button" onclick="restartExcretoryGame()">เล่นอีกครั้ง</button>
+                    <button class="next-button" onclick="backToMissions()">กลับไปเลือกภารกิจ</button>
+                </div>`;
+
+            document.getElementById("excretory-options").innerHTML = "";
+        }
+
+        function restartExcretoryGame() {
+            excretoryCurrentQuestion = 0;
+            excretoryScore = 0;
+            excretoryAnswered = false;
+
+            showExcretoryQuestion();
+        }
+
+        // =========================
+        // MISSION 05 : IMMUNE DEFENSE
+        // =========================
+
+        const immuneQuestions = [
+            {
+                question: "1. ระบบภูมิคุ้มกันมีหน้าที่สำคัญอย่างไร?",
+                options: [
+                    "ควบคุมการเคลื่อนไหวของร่างกาย",
+                    "ป้องกันและกำจัดสิ่งแปลกปลอมที่เข้าสู่ร่างกาย",
+                    "ลำเลียงออกซิเจนไปยังเซลล์",
+                    "ย่อยอาหารให้มีขนาดเล็กลง"
+                ],
+                answer: 1,
+                explanation: "ระบบภูมิคุ้มกันทำหน้าที่ป้องกันร่างกายจากเชื้อโรคและสิ่งแปลกปลอม รวมถึงช่วยกำจัดเซลล์ที่ผิดปกติ"
+            },
+            {
+                question: "2. ข้อใดเป็นด่านป้องกันเชื้อโรคด่านแรกของร่างกาย?",
+                options: [
+                    "ผิวหนัง",
+                    "เม็ดเลือดแดง",
+                    "เกล็ดเลือด",
+                    "กระดูก"
+                ],
+                answer: 0,
+                explanation: "ผิวหนังเป็นแนวกั้นทางกายภาพที่ช่วยป้องกันไม่ให้เชื้อโรคเข้าสู่ร่างกาย"
+            },
+            {
+                question: "3. เม็ดเลือดขาวชนิดใดทำหน้าที่จับกินเชื้อโรคด้วยกระบวนการฟาโกไซโทซิส?",
+                options: [
+                    "เม็ดเลือดแดง",
+                    "เกล็ดเลือด",
+                    "นิวโทรฟิล",
+                    "เซลล์ประสาท"
+                ],
+                answer: 2,
+                explanation: "นิวโทรฟิลเป็นเม็ดเลือดขาวที่สามารถจับกินและทำลายเชื้อโรคด้วยกระบวนการฟาโกไซโทซิส"
+            },
+            {
+                question: "4. สารแอนติบอดี (Antibody) สร้างจากเซลล์ชนิดใด?",
+                options: [
+                    "เม็ดเลือดแดง",
+                    "เกล็ดเลือด",
+                    "เซลล์กล้ามเนื้อ",
+                    "พลาสมาเซลล์"
+                ],
+                answer: 3,
+                explanation: "พลาสมาเซลล์เป็นเซลล์ที่พัฒนามาจากบีลิมโฟไซต์และทำหน้าที่สร้างแอนติบอดี"
+            },
+            {
+                question: "5. เซลล์ทีชนิดใดทำหน้าที่ทำลายเซลล์ร่างกายที่ติดเชื้อไวรัส?",
+                options: [
+                    "เซลล์ทีชนิดไซโททอกซิก (Cytotoxic T cell)",
+                    "เซลล์ทีชนิดเฮลเปอร์ (Helper T cell)",
+                    "บีลิมโฟไซต์",
+                    "พลาสมาเซลล์"
+                ],
+                answer: 0,
+                explanation: "Cytotoxic T cell ทำหน้าที่ทำลายเซลล์ของร่างกายที่ติดเชื้อหรือเซลล์ที่ผิดปกติ"
+            },
+            {
+                question: "6. วัคซีนช่วยกระตุ้นระบบภูมิคุ้มกันอย่างไร?",
+                options: [
+                    "ทำให้เม็ดเลือดแดงเพิ่มจำนวน",
+                    "กระตุ้นให้ร่างกายสร้างภูมิคุ้มกันและเซลล์ความจำ",
+                    "ทำลายเชื้อโรคทุกชนิดทันที",
+                    "หยุดการทำงานของเม็ดเลือดขาว"
+                ],
+                answer: 1,
+                explanation: "วัคซีนกระตุ้นระบบภูมิคุ้มกันให้เรียนรู้แอนติเจนและสร้างเซลล์ความจำ ทำให้ตอบสนองได้รวดเร็วขึ้นเมื่อพบเชื้อจริง"
+            },
+            {
+                question: "7. ภูมิคุ้มกันแบบไม่จำเพาะ (Innate immunity) มีลักษณะอย่างไร?",
+                options: [
+                    "เกิดขึ้นหลังได้รับวัคซีนเท่านั้น",
+                    "จำเพาะต่อเชื้อโรคชนิดใดชนิดหนึ่ง",
+                    "เป็นการป้องกันที่มีอยู่แต่กำเนิดและตอบสนองได้รวดเร็ว",
+                    "ต้องใช้เวลาในการสร้างเซลล์ความจำก่อนเสมอ"
+                ],
+                answer: 2,
+                explanation: "ภูมิคุ้มกันแบบไม่จำเพาะเป็นระบบป้องกันที่มีมาตั้งแต่กำเนิด ตอบสนองรวดเร็วและไม่จำเพาะต่อแอนติเจนชนิดใดชนิดหนึ่ง"
+            },
+            {
+                question: "8. ลิมโฟไซต์ชนิดใดมีบทบาทสำคัญในการสร้างแอนติบอดี?",
+                options: [
+                    "นิวโทรฟิล",
+                    "โมโนไซต์",
+                    "อีโอซิโนฟิล",
+                    "บีลิมโฟไซต์"
+                ],
+                answer: 3,
+                explanation: "บีลิมโฟไซต์สามารถพัฒนาเป็นพลาสมาเซลล์เพื่อสร้างแอนติบอดี และบางส่วนพัฒนาเป็นเซลล์บีความจำ"
+            },
+            {
+                question: "9. อาการบวม แดง ร้อน และเจ็บบริเวณที่เกิดบาดแผล เป็นลักษณะของกระบวนการใด?",
+                options: [
+                    "การอักเสบ",
+                    "การแข็งตัวของเลือด",
+                    "การย่อยอาหาร",
+                    "การหายใจระดับเซลล์"
+                ],
+                answer: 0,
+                explanation: "การอักเสบเป็นการตอบสนองของร่างกายต่อการบาดเจ็บหรือการติดเชื้อ ทำให้บริเวณนั้นมีเลือดไหลเวียนเพิ่มขึ้นและเกิดอาการบวม แดง ร้อน หรือเจ็บ"
+            },
+            {
+                question: "10. เหตุใดเมื่อได้รับเชื้อโรคเดิมอีกครั้ง ร่างกายจึงมักตอบสนองได้รวดเร็วขึ้น?",
+                options: [
+                    "เพราะเม็ดเลือดแดงจดจำเชื้อโรคได้",
+                    "เพราะร่างกายมีเซลล์ความจำจากการตอบสนองครั้งก่อน",
+                    "เพราะเชื้อโรคเปลี่ยนเป็นเซลล์ของร่างกาย",
+                    "เพราะระบบภูมิคุ้มกันหยุดทำงาน"
+                ],
+                answer: 1,
+                explanation: "เซลล์ความจำช่วยให้ระบบภูมิคุ้มกันจดจำแอนติเจนและตอบสนองต่อเชื้อโรคเดิมได้รวดเร็วและมีประสิทธิภาพมากขึ้น"
+            }
+        ];
+
+        let immuneCurrentQuestion = 0;
+        let immuneScore = 0;
+        let immuneAnswered = false;
+
+        function showImmuneQuestion() {
+            const current = immuneQuestions[immuneCurrentQuestion];
+
+            immuneAnswered = false;
+
+            document.getElementById("immune-progress").textContent =
+                "QUESTION " + (immuneCurrentQuestion + 1) +
+                " / " + immuneQuestions.length;
+
+            document.getElementById("immune-question").innerHTML =
+                `<p>${current.question}</p>`;
+
+            document.getElementById("immune-feedback").innerHTML = "";
+            document.getElementById("immune-feedback").className = "";
+
+            const optionsBox = document.getElementById("immune-options");
+            optionsBox.innerHTML = "";
+
+            current.options.forEach((option, index) => {
+                const button = document.createElement("button");
+
+                button.className = "answer-button";
+                button.textContent = option;
+                button.onclick = () => checkImmuneAnswer(index);
+
+                optionsBox.appendChild(button);
+            });
+        }
+
+        function checkImmuneAnswer(selectedIndex) {
+            if (immuneAnswered) return;
+
+            immuneAnswered = true;
+
+            const current = immuneQuestions[immuneCurrentQuestion];
+            const feedbackBox = document.getElementById("immune-feedback");
+            const optionsBox = document.getElementById("immune-options");
+            const buttons = optionsBox.querySelectorAll(".answer-button");
+
+            if (selectedIndex === current.answer) {
+                immuneScore++;
+
+                feedbackBox.innerHTML =
+                    "✓ ถูกต้อง!<br>" + current.explanation;
+
+                feedbackBox.className = "correct-feedback";
+
+            } else {
+                feedbackBox.innerHTML =
+                    "✕ ยังไม่ถูกต้อง<br>คำตอบที่ถูกคือ " +
+                    current.options[current.answer] +
+                    "<br>" + current.explanation;
+
+                feedbackBox.className = "wrong-feedback";
+            }
+
+            buttons.forEach((button, index) => {
+                button.disabled = true;
+
+                if (index === current.answer) {
+                    button.style.borderColor = "#35e6a1";
+                    button.style.backgroundColor = "#14513f";
+                } else if (index === selectedIndex) {
+                    button.style.borderColor = "#ff647c";
+                    button.style.backgroundColor = "#542638";
+                }
+            });
+
+            const nextButton = document.createElement("button");
+
+            nextButton.className = "next-button";
+            nextButton.textContent =
+                immuneCurrentQuestion === immuneQuestions.length - 1
+                    ? "ดูผลคะแนน"
+                    : "ข้อต่อไป";
+
+            nextButton.onclick = nextImmuneQuestion;
+
+            optionsBox.appendChild(nextButton);
+        }
+
+        function nextImmuneQuestion() {
+            immuneCurrentQuestion++;
+
+            if (immuneCurrentQuestion < immuneQuestions.length) {
+                showImmuneQuestion();
+            } else {
+                showImmuneResult();
+            }
+        }
+
+        function showImmuneResult() {
+            totalScores.immune = immuneScore;
+
+            document.getElementById("immune-progress").textContent =
+                "MISSION COMPLETED";
+
+            document.getElementById("immune-question").innerHTML =
+                "<h3>MISSION COMPLETE!</h3>";
+
+            let message = "";
+
+            if (immuneScore >= 8) {
+                message = "ยอดเยี่ยม! คุณเข้าใจระบบภูมิคุ้มกันเป็นอย่างดี";
+            } else if (immuneScore >= 5) {
+                message = "ทำได้ดี! ลองทบทวนเนื้อหาเพิ่มเติมอีกนิด";
+            } else {
+                message = "ลองทบทวนบทเรียนแล้วกลับมาท้าทายอีกครั้ง";
+            }
+
+            document.getElementById("immune-feedback").innerHTML =
+                `<div class="final-score">
+                    <h2>คะแนนของคุณ</h2>
+                    <h1>${immuneScore} / ${immuneQuestions.length}</h1>
+                    <p>${message}</p>
+                    <button class="next-button" onclick="restartImmuneGame()">เล่นอีกครั้ง</button>
+                    <button class="next-button" onclick="backToMissions()">กลับไปเลือกภารกิจ</button>
+                </div>`;
+
+            document.getElementById("immune-options").innerHTML = "";
+        }
+
+        function restartImmuneGame() {
+            immuneCurrentQuestion = 0;
+            immuneScore = 0;
+            immuneAnswered = false;
+
+            showImmuneQuestion();
+        }
+
+    </script>
+
+</body>
+</html>
